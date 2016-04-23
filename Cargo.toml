@@ -2,7 +2,7 @@
 name = "curs"
 version = "0.1.0"
 authors = ["Nubis <yo@nubis.im>"]
-description = "Curl for rust users. Based on Hyper. File Uploads. JSON REST API Clients."
+description = "Hyper HTTP client lib, feels more like curl. Supports file Uploads."
 repository = "https://github.com/bitex-la/rust-curs"
 keywords = ["http", "api", "client", "web", "multipart"]
 license = "WTFPL"

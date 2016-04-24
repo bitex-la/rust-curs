@@ -1,6 +1,6 @@
 [package]
 name = "curs"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Nubis <yo@nubis.im>"]
 description = "Hyper HTTP client lib, feels more like curl. Supports file Uploads."
 repository = "https://github.com/bitex-la/rust-curs"

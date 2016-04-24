@@ -30,4 +30,8 @@ send your pull request.
 
 See actual examples in [the docs](http://bitex-la.github.io/rust-curs/curs/index.html)
 
-    
+## License
+
+Licensed under the glorious [WTFPL](http://www.wtfpl.net/)
+
+Essentially public domain, even in jurisdictions where public domain is not a legal option.

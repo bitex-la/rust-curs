@@ -34,7 +34,7 @@
 //!
 //!  let response : Vec<String> = Request::new(Method::Post, &*format!("{}/some_post", url))
 //!    .params(vec![("one","value_one"), ("two", "value_two")])
-//!    .headers(vec![UserAgent("morcilla-firefox".to_string())])
+//!    .header(UserAgent("morcilla-firefox".to_string()))
 //!    .files(vec![file])
 //!    .send().decode_success().unwrap();
 //!  assert_eq!(response, vec!["foo", "bar"]);
@@ -211,15 +211,11 @@ impl<'a> Request<'a>{
     self
   }
 
-  /// Add headers. This replaces all existing headers.
-  pub fn headers<A,H>(&mut self, additional: A) -> &mut Request<'a>
-    where
-      A: IntoIterator<Item = H>,
-      H: Header + HeaderFormat
+  /// Add a single header.
+  pub fn header<H>(&mut self, additional: H) -> &mut Request<'a>
+    where H: Header + HeaderFormat
   {
-    for h in additional {
-      self.headers.set(h);
-    }
+    self.headers.set(additional);
     self
   }
 

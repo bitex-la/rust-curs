@@ -39,7 +39,7 @@ fn successful_multipart(){
 
   let response : DummyJson = Request::new(Method::Post, &*format!("{}/some_post", url))
     .params(vec![("one","value_one"), ("two", "value_two")])
-    .headers(vec![UserAgent("morcilla-firefox".to_string())])
+    .header(UserAgent("morcilla-firefox".to_string()))
     .files(vec![file])
     .send().decode_success().unwrap();
   assert_eq!(response, DummyJson{ foo: "got files".to_string() });
@@ -57,7 +57,7 @@ fn successful_json_get(){
 
   let response : DummyJson = Request::new(Method::Get, &*format!("{}/a_get", url))
     .params(vec![("one","value_one"), ("two", "value_two")])
-    .headers(vec![UserAgent("morcilla-firefox".to_string())])
+    .header(UserAgent("morcilla-firefox".to_string()))
     .send().decode_success().unwrap();
   assert_eq!(response, DummyJson{ foo: "bar".to_string() });
 }

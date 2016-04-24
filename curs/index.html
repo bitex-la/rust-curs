@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/curs/src/lib.rs.html#1-257' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/curs/src/lib.rs.html#1-253' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Curs: Curl for rust users. Based on Hyper. File Uploads. JSON REST API Clients.</p>
 
 <p>Make your request, add params and files, curs just works and decides the
@@ -83,7 +83,7 @@ right body format and adds any needed headers.</p>
 
  <span class='kw'>let</span> <span class='ident'>response</span> : <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>Request</span>::<span class='ident'>new</span>(<span class='ident'>Method</span>::<span class='ident'>Post</span>, <span class='kw-2'>&amp;</span><span class='op'>*</span><span class='macro'>format</span><span class='macro'>!</span>(<span class='string'>&quot;{}/some_post&quot;</span>, <span class='ident'>url</span>))
    .<span class='ident'>params</span>(<span class='macro'>vec</span><span class='macro'>!</span>[(<span class='string'>&quot;one&quot;</span>,<span class='string'>&quot;value_one&quot;</span>), (<span class='string'>&quot;two&quot;</span>, <span class='string'>&quot;value_two&quot;</span>)])
-   .<span class='ident'>headers</span>(<span class='macro'>vec</span><span class='macro'>!</span>[<span class='ident'>UserAgent</span>(<span class='string'>&quot;morcilla-firefox&quot;</span>.<span class='ident'>to_string</span>())])
+   .<span class='ident'>header</span>(<span class='ident'>UserAgent</span>(<span class='string'>&quot;morcilla-firefox&quot;</span>.<span class='ident'>to_string</span>()))
    .<span class='ident'>files</span>(<span class='macro'>vec</span><span class='macro'>!</span>[<span class='ident'>file</span>])
    .<span class='ident'>send</span>().<span class='ident'>decode_success</span>().<span class='ident'>unwrap</span>();
  <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>response</span>, <span class='macro'>vec</span><span class='macro'>!</span>[<span class='string'>&quot;foo&quot;</span>, <span class='string'>&quot;bar&quot;</span>]);

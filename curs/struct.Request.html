@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-126' class='srclink' href='../src/curs/src/lib.rs.html#183-189' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-126' class='srclink' href='../src/curs/src/lib.rs.html#193-200' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Request&lt;'a&gt; {
     // some fields omitted
 }</pre><div class='docblock'><p>The main entry point. Craft your request and send it.</p>
@@ -55,6 +55,15 @@
 <div class='docblock'><p>You&#39;ll always need a method and the url to start.</p>
 </div><h4 id='method.params' class='method'><code>fn <a href='#method.params' class='fnname'>params</a>&lt;P&gt;(&amp;mut self, additional: P) -&gt; &amp;mut <a class='struct' href='../curs/struct.Request.html' title='curs::Request'>Request</a>&lt;'a&gt; <span class='where'>where P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIterator</a>&lt;Item=<a class='type' href='../curs/type.Param.html' title='curs::Param'>Param</a>&lt;'a&gt;&gt;</span></code></h4>
 <div class='docblock'><p>Add params. This extends the existing params vector.</p>
+</div><h4 id='method.json' class='method'><code>fn <a href='#method.json' class='fnname'>json</a>&lt;S: <a class='trait' href='https://serde-rs.github.io/serde/serde/serde/ser/trait.Serialize.html' title='serde::ser::Serialize'>Serialize</a>&gt;(&amp;mut self, thing: S) -&gt; &amp;mut <a class='struct' href='../curs/struct.Request.html' title='curs::Request'>Request</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Use a serde::se::Serialize as JSON raw body.
+Adds the content-type: application/json header.
+This will override anything you&#39;ve sent in in &quot;params&quot;.
+If you need a json raw body <em>and</em> your params in the same request,
+either you&#39;re just being silly or need to fall back to curs::hyper::client.</p>
+</div><h4 id='method.override_body' class='method'><code>fn <a href='#method.override_body' class='fnname'>override_body</a>(&amp;mut self, body: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>) -&gt; &amp;mut <a class='struct' href='../curs/struct.Request.html' title='curs::Request'>Request</a>&lt;'a&gt;</code></h4>
+<div class='docblock'><p>Sets a raw body, overriding anything that was previously set in params.
+Make sure to set the content-type header to match whatever you&#39;re adding here.</p>
 </div><h4 id='method.files' class='method'><code>fn <a href='#method.files' class='fnname'>files</a>&lt;F&gt;(&amp;mut self, additional: F) -&gt; &amp;mut <a class='struct' href='../curs/struct.Request.html' title='curs::Request'>Request</a>&lt;'a&gt; <span class='where'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/trait.IntoIterator.html' title='core::iter::IntoIterator'>IntoIterator</a>&lt;Item=<a class='struct' href='../curs/struct.FileUpload.html' title='curs::FileUpload'>FileUpload</a>&lt;'a&gt;&gt;</span></code></h4>
 <div class='docblock'><p>Add files to upload. This extends the existing files vector.</p>
 </div><h4 id='method.header' class='method'><code>fn <a href='#method.header' class='fnname'>header</a>&lt;H&gt;(&amp;mut self, additional: H) -&gt; &amp;mut <a class='struct' href='../curs/struct.Request.html' title='curs::Request'>Request</a>&lt;'a&gt; <span class='where'>where H: <a class='trait' href='https://hyperium.github.io/hyper/hyper/header/trait.Header.html' title='hyper::header::Header'>Header</a> + <a class='trait' href='https://hyperium.github.io/hyper/hyper/header/trait.HeaderFormat.html' title='hyper::header::HeaderFormat'>HeaderFormat</a></span></code></h4>

@@ -47,11 +47,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/curs/src/lib.rs.html#1-253' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/curs/src/lib.rs.html#1-290' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Curs: Curl for rust users. Based on Hyper. File Uploads. JSON REST API Clients.</p>
 
-<p>Make your request, add params and files, curs just works and decides the
+<p>Make your request, add params and files, or a JSON body, curs just works and decides the
 right body format and adds any needed headers.</p>
+
+<p>Adding a raw request body is also possible, but if you need unopinionated flexibility
+you can try falling back to hyper, re-exported as curs::hyper::client for your convenience.</p>
 
 <p>Then you can optionally deserialize json responses. Or just use them as text.</p>
 
@@ -67,7 +70,7 @@ right body format and adds any needed headers.</p>
 <span class='kw'>use</span> <span class='ident'>curs</span>::{<span class='ident'>Request</span>, <span class='ident'>FileUpload</span>, <span class='ident'>DecodableResult</span>, <span class='ident'>Method</span>};
 
 <span class='comment'>// Just stuff needed for this particular test.</span>
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>http_stub</span>; 
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>http_stub</span>;
 <span class='kw'>use</span> <span class='ident'>http_stub</span> <span class='kw'>as</span> <span class='ident'>hs</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>env</span>;
 <span class='kw'>use</span> <span class='ident'>curs</span>::<span class='ident'>hyper</span>::<span class='ident'>header</span>::<span class='ident'>UserAgent</span>;

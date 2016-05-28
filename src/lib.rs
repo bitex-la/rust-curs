@@ -44,11 +44,10 @@
 //! }
 //! ```
 
-#![feature(custom_derive, plugin)]
-
 pub extern crate serde;
 pub extern crate serde_json;
 pub extern crate hyper;
+
 extern crate url;
 extern crate rand;
 extern crate mime_guess;

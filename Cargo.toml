@@ -10,9 +10,9 @@ license = "WTFPL"
 [dependencies]
 hyper = "0.7.2"
 url = "=0.5.5"
-serde = "0.7"
-serde_json = "0.7"
-serde_macros = "0.7.2"
+serde = { version = "^0.8.0", git = "https://github.com/nubis/serde" }
+serde_macros = { version = "^0.8.0", git = "https://github.com/nubis/serde" }
+serde_json = { version = "^0.8.0", git = "https://github.com/nubis/json" }
 rand = "0.3.14"
 mime_guess = "=1.4.0"
 

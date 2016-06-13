@@ -44,8 +44,10 @@
 //! }
 //! ```
 
-#![feature(custom_derive, plugin)]
+#![feature(custom_derive, plugin, macro_reexport)]
 
+#[macro_use]
+#[macro_reexport(d128)]
 pub extern crate serde;
 pub extern crate serde_json;
 pub extern crate hyper;

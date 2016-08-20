@@ -1,6 +1,9 @@
 #![feature(custom_derive, plugin)]
 #![plugin(serde_macros)]
 
+use std::{thread, time};
+
+
 extern crate curs;
 extern crate http_stub;
 extern crate serde;
@@ -34,6 +37,9 @@ fn successful_multipart() {
                                                           vec![])));
         stub.send_body(r#"{"foo":"got files"}"#);
     });
+    print!("{}", url);
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let file = FileUpload {
         name: "shim.png".to_string(),
@@ -60,6 +66,9 @@ fn successful_json_get() {
         stub.got_header("user-agent", "morcilla-firefox");
         stub.send_body(r#"{"foo":"bar"}"#);
     });
+    print!("{}", url);
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let response: DummyJson = Request::new(Method::Get, &*format!("{}/a_get", url))
                                   .params(vec![("one", "value_one"), ("two", "value_two")])
@@ -78,6 +87,8 @@ fn successful_json_post() {
         stub.got_body("one=value_one&two=value_two");
         stub.send_body(r#"{"foo":"that"}"#);
     });
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let response: DummyJson = Request::new(Method::Post, &*format!("{}/some_post", url))
                                   .params(vec![("one", "value_one"), ("two", "value_two")])
@@ -96,6 +107,8 @@ fn successful_json_body_post() {
         stub.got_body(r#"\{"foo":"this"\}"#);
         stub.send_body(r#"{"foo":"that"}"#);
     });
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let response: DummyJson = Request::new(Method::Post, &*format!("{}/see_this_json", url))
     .json(DummyJson{ foo: "this".to_string() })
@@ -114,6 +127,8 @@ fn successful_raw_body_post() {
         stub.got_body("A potato's body");
         stub.send_body(r#"{"foo":"potato"}"#);
     });
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let response: DummyJson = Request::new(Method::Post, &*format!("{}/a_potato", url))
                                   .header(ContentType("application/potato".parse().unwrap()))
@@ -133,6 +148,8 @@ fn errors_out_with_not_found() {
         stub.send_status(hs::StatusCode::InternalServerError);
         stub.send_body("404 not found");
     });
+    let ten_millis = time::Duration::from_millis(10);
+    thread::sleep(ten_millis);
 
     let result: CursResult<DummyJson> = Request::new(Method::Get, &*url).send().decode_success();
 

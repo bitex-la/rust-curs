@@ -1,6 +1,6 @@
 [package]
 name = "curs"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Nubis <yo@nubis.im>"]
 description = "Hyper HTTP client lib, feels more like curl. Supports file Uploads."
 repository = "https://github.com/bitex-la/rust-curs"
@@ -10,11 +10,11 @@ license = "WTFPL"
 [dependencies]
 hyper = "0.7.2"
 url = "=0.5.5"
-serde = "0.7"
-serde_json = "0.7"
+serde = "0.8.3"
+serde_json = "0.8.3"
 rand = "0.3.14"
 mime_guess = "=1.4.0"
 
 [dev-dependencies]
 http_stub = "0.1.2"
-serde_macros = "0.7"
+serde_macros = "0.8.3"
